@@ -1,3 +1,7 @@
 import Foundation
 
-print("Aula 1 de Swift!!")
+enum NivelAluno {
+    case iniciante
+    case intermediario
+    case avancado
+}
