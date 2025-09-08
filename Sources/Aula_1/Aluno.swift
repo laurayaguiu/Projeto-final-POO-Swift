@@ -1,5 +1,11 @@
 import Foundation
 
+enum NivelAluno {
+    case iniciante
+    case intermediario
+    case avancado
+}
+
  class Aluno: Pessoa {
     var matricula: String
     var nivel: NivelAluno
