@@ -19,7 +19,7 @@ enum NivelAluno {
     }
 
     override func getDescricao() -> String {
-        return super.getDescricao() + " matricula: \(matricula), plano: \(plano)"
+        return super.getDescricao() + " matricula: \(matricula), plano: \(plano.nome)"
     }
 
  }
