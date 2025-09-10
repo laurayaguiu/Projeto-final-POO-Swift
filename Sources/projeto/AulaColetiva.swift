@@ -1,12 +1,10 @@
 import Foundation
 class AulaColetiva: Aula {
     private(set) var alunosInscritos: [String: Aluno] = [:]
-    var capacidadeMaxima: Int 
+    var capacidadeMaxima: Int
 
-    init(nome: String, instrutor: Instrutor, alunosInscritos: [String: Aluno], capacidadeMaxima: 25) {
-        self.alunosInscritos = alunosInscritos
+    override init(nome: String, instrutor: String) {
         self.capacidadeMaxima = 25
-
         super.init(nome: nome, instrutor: instrutor)
     }
 
@@ -14,20 +12,27 @@ class AulaColetiva: Aula {
         if (alunosInscritos.count >= capacidadeMaxima) {
             print("LOTADO!!")
             return false
+        } else {
+            print("Aula com vaga")
+            return true 
         }
 
-        // Retorna um valor booleano que indica se a sequência contém um elemento no dicionario q seja igual a matricula desse aluno
-        if alunosInscritos.contains(where: { $0.key == aluno.matricula }) {
-        print("Aluno \(aluno.nome) já está inscrito.")
-        return false
-        }
-
-       alunosInscritos[aluno.matricula] = aluno
-        print("Aluno \(aluno.nome) inscrito com sucesso!")
-        return true
+        
+       if(alunosInscritos.keys.contains(aluno.matricula)) {
+        print("Aluno já está inscrito")
+        return false 
+        } else { 
+            alunosInscritos [aluno.matricula] = aluno
+       }
+        
+        print("Aluno adicionado com sucesso!")
+        return true 
+       }
+       
     }
     
-    override getDescricao() -> String {
-        return super.getDescricao() + "numero de vagas" \(alunosInscritos.count), "capacidade máxima:" \(capacidadeMaxima)
+    override func getDescricao() -> String {
+        return super.getDescricao() + "numero de vagas (\(alunosInscritos.count ) - \(capacidadeMaxima)), capacidade máxima: \(capacidadeMaxima)"
     }
 }
+

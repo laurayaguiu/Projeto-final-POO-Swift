@@ -1,10 +1,10 @@
 class Aparelho: Manutencao {
     var nomeItem: String
-    private(set) var dataUltimaManutencao: String = String
+    private(set) var dataUltimaManutencao: String 
     
     init(nomeItem: String) {
         self.dataUltimaManutencao = "Nenhuma"
-        self.nomeItem = nome
+        self.nomeItem = nomeItem
     }
 
     func realizarManutencao() -> Bool {

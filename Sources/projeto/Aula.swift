@@ -5,8 +5,8 @@ class Aula {
     var instrutor: Instrutor
 
     init(nome: String, instrutor: Instrutor) {
-        self.nome: nome
-        self.instrutor: instrutor
+        self.nome = nome
+        self.instrutor = instrutor
     }
 
     func getDescricao() -> String {
