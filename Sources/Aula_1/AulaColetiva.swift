@@ -13,16 +13,21 @@ class AulaColetiva: Aula {
     func inscrever(aluno: Aluno) -> Bool {
         if (alunosInscritos.count >= capacidadeMaxima) {
             print("LOTADO!!")
-            
-        } else if {
-            print("Capacidade máxima não atengida")
+            return false
         }
-        if (alunosInscritos,contais{$1.key == aluno}) {
-            print("Aluno já inscrito")
-        } else if 
-    }
 
+        // Retorna um valor booleano que indica se a sequência contém um elemento no dicionario q seja igual a matricula desse aluno
+        if alunosInscritos.contains(where: { $0.key == aluno.matricula }) {
+        print("Aluno \(aluno.nome) já está inscrito.")
+        return false
+        }
+
+       alunosInscritos[aluno.matricula] = aluno
+        print("Aluno \(aluno.nome) inscrito com sucesso!")
+        return true
+    }
+    
     override getDescricao() -> String {
-        return super.getDescricao() + "numero de vagas" \(alunosInscritos.count), "capacidade máxima:"
+        return super.getDescricao() + "numero de vagas" \(alunosInscritos.count), "capacidade máxima:" \(capacidadeMaxima)
     }
 }
