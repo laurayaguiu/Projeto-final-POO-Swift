@@ -10,7 +10,7 @@ class AulaColetiva: Aula {
 
     func inscrever(aluno: Aluno) -> Bool {
         if (alunosInscritos.count >= capacidadeMaxima) {
-            print("LOTADO!!")
+            print("Erro: Aula já está lotada!")
             return false
         } else {
             print("Aula com vaga")
@@ -32,7 +32,7 @@ class AulaColetiva: Aula {
     }
     
     override func getDescricao() -> String {
-        return super.getDescricao() + "numero de vagas (\(alunosInscritos.count ) - \(capacidadeMaxima)), capacidade máxima: \(capacidadeMaxima)"
+        return super.getDescricao() + ", Vagas: \(alunosInscritos.count)/\(capacidadeMaxima)"
     }
 }
 

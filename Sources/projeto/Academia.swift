@@ -2,10 +2,10 @@ import Foundation
 
 class Academia {
     private(set) let nome : String
-    private(set) var alunosMatriculados : [String: Aluno]
-    private(set) var aparelhos : [Aparelho]
-    private(set) var instrutoresContratados : [String: Instrutor]
-    private(set) var aulasDisponiveis : [Aula]
+    private(set) var alunosMatriculados : [String: Aluno] = [:]
+    private(set) var aparelhos : [Aparelho] = []
+    private(set) var instrutoresContratados : [String: Instrutor] = [:]
+    private(set) var aulasDisponiveis : [Aula] = []
 
     init(nome: String, alunosMatriculados: [String: Aluno], aparelhos: [Aparelho], instrutoresContratados: [String: Instrutor], aulasDisponiveis: [Aula] ) {
         self.nome = nome
@@ -44,16 +44,31 @@ class Academia {
     }
 
     func buscarAluno(porMatricula matricula: String) -> Aluno? {
-        return 
+        return alunosMatriculados[matricula]
     }
 
     func listarAlunos() {
         print("--- Lista de Alunos Matriculados ---")
+        if alunosMatriculados.isEmpty {
+            print("Nenhum aluno matriculado.")
+        } else {
+            let listaOrdenada = alunosMatriculados.sorted(by: \.nome)
+            for aluno in listaOrdenada {
+                print(aluno.getDescricao())
+            }
+        }
         print("------------------------------------")
     }
 
     func listarAulas() {
         print("--- Lista de Aulas ---")
+       if aulasDisponiveis.isEmpty {
+            print("Nenhuma aula disponível.")
+        } else {
+            for aula in aulasDisponiveis {
+                print(aula.getDescricao())
+            }
+        }
         print("----------------------")
     }
 
