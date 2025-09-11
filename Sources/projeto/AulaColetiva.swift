@@ -3,36 +3,31 @@ class AulaColetiva: Aula {
     private(set) var alunosInscritos: [String: Aluno] = [:]
     var capacidadeMaxima: Int
 
-    override init(nome: String, instrutor: String) {
+    override init(nome: String, instrutor: Instrutor) {
         self.capacidadeMaxima = 25
         super.init(nome: nome, instrutor: instrutor)
     }
 
     func inscrever(aluno: Aluno) -> Bool {
-        if (alunosInscritos.count >= capacidadeMaxima) {
-            print("Erro: Aula já está lotada!")
-            return false
+        if (alunosInscritos.count <= capacidadeMaxima) {
+            print("Aula lotada")
+            return false 
         } else {
             print("Aula com vaga")
-            return true 
+            return true
         }
-
-        
-       if(alunosInscritos.keys.contains(aluno.matricula)) {
-        print("Aluno já está inscrito")
-        return false 
-        } else { 
-            alunosInscritos [aluno.matricula] = aluno
-       }
-        
-        print("Aluno adicionado com sucesso!")
-        return true 
-       }
-       
+        if (alunosInscritos.keys.contains(aluno.matricula)) {
+            print("Aluno já está inscrito")
+            return false
+        } else {
+            alunosInscritos[aluno.matricula] = aluno
+            print("Aluno adicionado com sucesso!")
+            return true
+        }
     }
     
-    override func getDescricao() -> String {
-        return super.getDescricao() + ", Vagas: \(alunosInscritos.count)/\(capacidadeMaxima)"
-    }
+     override func getDescricao() -> String {
+        return super.getDescricao() + "Número de vagas: \((alunosInscritos.count)-capacidadeMaxima) Capacidade da Turma: \(capacidadeMaxima)"
+     }
 }
 

@@ -7,20 +7,17 @@ class Academia {
     private(set) var instrutoresContratados : [String: Instrutor] = [:]
     private(set) var aulasDisponiveis : [Aula] = []
 
-    init(nome: String, alunosMatriculados: [String: Aluno], aparelhos: [Aparelho], instrutoresContratados: [String: Instrutor], aulasDisponiveis: [Aula] ) {
+    init(nome: String) {
         self.nome = nome
-        self.alunosMatriculados = alunosMatriculados
-        self.aparelhos = aparelhos
-        self.instrutoresContratados = instrutoresContratados
-        self.aulasDisponiveis = aulasDisponiveis
+        
     }
 
     func adicionarAparelho(_ aparelhos: Aparelho) {
-        aparelhos.append(Aparelho.nomeItem)
+        aparelhos.append(aparelho)
     }
 
     func adicionarAula(_ aula: Aula) {
-        aula.append(Aula.nome)
+        aulasDisponiveis.append(aula)
     }
 
     func contratarInstrutor(_ instrutor: Instrutor) {
@@ -29,10 +26,10 @@ class Academia {
 
     func matricularAluno(_ aluno: Aluno) {
         if (alunosMatriculados.keys.contains(aluno.matricula)) {
-            print("Erro: Aluno com matrícula X já existe")
+            print("Erro: Aluno com matrícula \(aluno.matricula) já existe")
         } else {
             alunosMatriculados [aluno.matricula] = aluno
-            print("Aluno adicionado")
+            print("Aluno adicionado com sucesso!")
         }
     }
 
@@ -44,15 +41,19 @@ class Academia {
     }
 
     func buscarAluno(porMatricula matricula: String) -> Aluno? {
-        return alunosMatriculados[matricula]
+        if(alunosMatriculados.keys.contains(matricula)) {
+            return alunosMatriculados[matricula]
+        } else {
+            return nil 
+        }
     }
 
     func listarAlunos() {
         print("--- Lista de Alunos Matriculados ---")
         if alunosMatriculados.isEmpty {
             print("Nenhum aluno matriculado.")
-        } else {
-            let listaOrdenada = alunosMatriculados.sorted(by: \.nome)
+        } else { 
+            let listaOrdenada = alunosMatriculados.values.sorted($0.nome < $1.nome)
             for aluno in listaOrdenada {
                 print(aluno.getDescricao())
             }
