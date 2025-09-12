@@ -1,7 +1,7 @@
 import Foundation
 
 enum NivelAluno {
-    case iniciante
+    case iniciante 
     case intermediario
     case avancado
 }
@@ -16,8 +16,6 @@ class Aula {
     }
 
     func getDescricao() -> String {
-        return "Aula: \(nome) Instrutor: \(instrutor.nome)"
+        return "Nome da aula: \(nome) Nome do instrutor: \(instrutor.nome)"
     }
-
-
 }

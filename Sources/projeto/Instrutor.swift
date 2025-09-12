@@ -1,4 +1,4 @@
-import Foundation
+import Foundation 
 
 class Instrutor: Pessoa {
     var especialidade: String
@@ -11,6 +11,4 @@ class Instrutor: Pessoa {
     override func getDescricao() -> String {
         return super.getDescricao() + "Especialidade: \(especialidade)"
     }
-
-    
 }

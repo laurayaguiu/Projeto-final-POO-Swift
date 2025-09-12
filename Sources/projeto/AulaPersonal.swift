@@ -1,4 +1,5 @@
 import Foundation
+
 class AulaPersonal: Aula {
     var aluno: Aluno
 
@@ -8,7 +9,6 @@ class AulaPersonal: Aula {
     }
 
     override func getDescricao() -> String {
-        return super.getDescricao() + " Aula perticular para o Aluno: \(aluno.nome)"
-    
+        return super.getDescricao() + "Nome do aluno: \(aluno.nome)"
     }
 }

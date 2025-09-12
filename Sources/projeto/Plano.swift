@@ -3,12 +3,11 @@ import Foundation
 class Plano {
     var nome: String
 
-    init (nome: String) {
+    init(nome: String) {
         self.nome = nome
     }
 
-
-    func CalcularMensalidade() -> Double {
+    func calcularMensalidade() -> Double {
         return 0.0
     }
 }

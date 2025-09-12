@@ -1,15 +1,17 @@
+import Foundation
+
 class Aparelho: Manutencao {
     var nomeItem: String
-    private(set) var dataUltimaManutencao: String 
-    
+    private(set) var dataUltimaManutencao: String
+
     init(nomeItem: String) {
-        self.dataUltimaManutencao = "Nenhuma"
         self.nomeItem = nomeItem
+        self.dataUltimaManutencao = "Nenhuma"
     }
 
     func realizarManutencao() -> Bool {
-        print("Realizando manutenção do aparelho")
-        print("Manutenção concluída! ultima verificação em: \(dataUltimaManutencao)")
+        print("Realizando manutenção")
+        print("Manutenção realizada, última manutenção em: \(dataUltimaManutencao)")
         return true
     }
 }
