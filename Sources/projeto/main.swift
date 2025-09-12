@@ -1,47 +1,44 @@
 import Foundation
 
-var minhaAcademia = Academia(nome: "Academia POO 360")
+let academia = Academia(nome: "Academia POO 360")
 
-let meuPlanoMensal = PlanoMensal(nome: "Plano Mensal")
-let meuPlanoAnual = PlanoAnual(nome: "Plano Anual")
+let planoMensal = PlanoMensal(nome: "Plano Mensal")
+let planoAnual = PlanoAnual(nome: "Plano Anual")
 
-let instrutor1 = Instrutor(nome: "Heitor", email: "heitorferreira@gmail.com", especialidade: "Zumba")
-let instrutor2 = Instrutor(nome: "Enzo", email: "enzorocha@gmail.com", especialidade: "Pilates")
+let instrutor1 = Instrutor(nome: "Henrique", email: "HL@gmail.com", especialidade: "Zumba")
+let instrutor2 = Instrutor(nome: "Erica", email: "ericak@gmail.com", especialidade: "Pilates")
 
-Academia.contratarInstrutor(instrutor1)
-Academia.contratarInstrutor(instrutor2)
+academia.contratarInstrutor(instrutor1)
+academia.contratarInstrutor(instrutor2)
 
-let aluno1 = matricularAluno(Aluno(nome: "Laura", email: "laurayaguiu@gmail.com", matricula: "10736399A", nivel: .iniciante, plano:  ))
-let aluno2 = matricularAluno(Aluno(nome: "Elton", email: "eltonyaguiu@gmail.com", matricula: "10736449A", nivel: .avancado, plano:  ))
+let aluno1 = Aluno(nome: "laura", email: "lauray@gmail.com", matricula: "T564", nivel: .iniciante, plano: planoMensal)
+let aluno2 = Aluno(nome: "elton", email: "eltony@gmail.com", matricula: "T234", nivel: .avancado, plano: planoAnual)
 
 academia.matricularAluno(aluno1)
 academia.matricularAluno(aluno2)
 
-let minhaAulaPersonal = AulaPersonal(nome: "Aula de zumba", instrutor: instrutor1, aluno: aluno1)
-let minhaAulaColetiva = AulaColetiva(nome: "Aula de pilates", instrutor: Instrutor, capacidadeMaxima: 3)
+let aulaPersonal = AulaPersonal(nome: "Zumba com herique", instrutor: instrutor1, aluno: aluno1)
+let aulaColetiva = AulaColetiva(nome: "Pilates com erica", instrutor: instrutor2)
 
 academia.adicionarAula(aulaPersonal)
 academia.adicionarAula(aulaColetiva)
 
-aulaColetiva.inscrever(aluno: aluno1)
-aulaColetiva.inscrever(aluno: aluno2)
-
-let aluno3 = academia.matricularAluno(nome: "Martins", email: "martins@gmail.com", matricula: "107364488", plano: planoMensal)
-aulaColetiva.inscrever(aluno: aluno3)
-
-let aluno4 = academia.matricularAluno(nome: "Erick", email: "Ericksilva@email.com", matricula: "10ff64488", plano: planoMensal)
-aulaColetiva.inscrever(aluno: aluno4)
+aulaColetiva.inscrever(aluno1)
+aulaColetiva.inscrever(aluno2)
+let aluno3 = Aluno(nome: "mario", email: "mario@gmail.com", matricula: "T345", nivel: .intermediario, plano: planoAnual)
+aulaColetiva.inscrever(aluno3)
+let aluno4 = Aluno(nome: "afonso", email: "afonso@gmail.com", matricula: "T111", nivel: .avancado, plano: planoMensal)
+aulaColetiva.inscrever(aluno4)
 
 academia.listarAulas()
-academia.listarAulas()
+academia.listarAlunos()
 
-var listarAulas: [Aula] = []
+var listaAulas: [Aula] = []
 listaAulas.append(aulaPersonal)
 listaAulas.append(aulaColetiva)
-for aula in listarAulasAulas {
+for aula in listaAulas {
     print(aula.getDescricao())
 }
-
 
 var listaPessoas: [Pessoa] = []
 listaPessoas.append(instrutor1)
@@ -60,9 +57,9 @@ extension Academia {
     }
 }
 
-var relatorio = Academia.gerarRelatorio()
+var relatorio = academia.gerarRelatorio()
 
-print("--- Relatório da Academia ---")
+print("\n--- Relatório da Academia ---")
 print("Total de Alunos: \(relatorio.totalAlunos)")
 print("Total de Instrutores: \(relatorio.totalInstrutores)")
 print("Total de Aulas: \(relatorio.totalAulas)")

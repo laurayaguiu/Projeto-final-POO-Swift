@@ -2,10 +2,10 @@ import Foundation
 
 class Academia {
     let nome: String
-    var alunosMatriculados: [String: Aluno] = [:]
-    var instrutoresContratados: [String: Instrutor] = [:]
-    var aparelhos: [Aparelho] = []
-    var aulasDisponiveis: [Aula] = []
+    private(set) var alunosMatriculados: [String: Aluno] = [:]
+    private(set) var instrutoresContratados: [String: Instrutor] = [:]
+    private(set) var aparelhos: [Aparelho] = []
+    private(set) var aulasDisponiveis: [Aula] = []
 
     init(nome: String) {
         self.nome = nome
@@ -25,10 +25,10 @@ class Academia {
 
     func matricularAluno(_ aluno: Aluno) {
         if (alunosMatriculados.keys.contains(aluno.matricula)) {
-            print("ERRO: Aluno com a matrícula \(aluno.matricula) já existe!")
+            print("Erro: Aluno com a matrícula \(aluno.matricula) já existe")
         } else {
             alunosMatriculados[aluno.matricula] = aluno
-            print("Aluno adicionado!")
+            print("Aluno matriculado com sucesso!")
         }
     }
 
@@ -47,7 +47,7 @@ class Academia {
     }
 
     func listarAlunos() {
-        print("--- Lista de Alunos Matriculados ---")
+        print("\n--- Lista de Alunos Matriculados ---")
         if (alunosMatriculados.isEmpty) {
             print("Nenhum aluno matriculado")
         } else {
@@ -60,7 +60,7 @@ class Academia {
     }
 
     func listarAulas() {
-        print("--- Lista de Aulas ---")
+        print("\n--- Lista de Aulas ---")
         if (aulasDisponiveis.isEmpty) {
             print("Nenhuma aula disponível.")
         } else {
@@ -70,6 +70,4 @@ class Academia {
         }
         print("----------------------")
     }
-
 }
-
