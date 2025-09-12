@@ -20,7 +20,7 @@ class AulaColetiva: Aula {
         }
         alunosInscritos[aluno.matricula] = aluno
         print("Aluno adicionado com sucesso!")
-        print(alunosInscritos)
+        print("Aluno add com sucesso")
         return true
     }
 
