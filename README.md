@@ -1,2 +1,2 @@
-# PreparandoAmbiente
-Criação de um ambiente swift para os alunos da trilha IOS Foundations, para que os alunos possam criar um fork do codespaces e fazer as atividades do curso, sem a nescessidade de criar conta em alguma IDE online ou ter o trabalho de preparar um ambiente.
+# Projeto final - Sistema de Academia 
+Este projeto é um exemplo de Programação Orientada a Objetos (POO) em Swift, que simula o funcionamento básico de uma academia.
